@@ -73,14 +73,14 @@
        * Process Leaflet (map) widget
        */
       function processLeafletWidget($el, name) {
-        if (!window.MAPBOX_MAP_ID) {
-          console.error("You must set MAPBOX_MAP_ID in your Flask settings to use the map widget");
-          return false;
-        }
-        if (!window.DEFAULT_CENTER_LAT || !window.DEFAULT_CENTER_LONG) {
-          console.error("You must set DEFAULT_CENTER_LAT and DEFAULT_CENTER_LONG in your Flask settings to use the map widget");
-          return false;
-        }
+        // if (!window.MAPBOX_MAP_ID) {
+        //   console.error("You must set MAPBOX_MAP_ID in your Flask settings to use the map widget");
+        //   return false;
+        // }
+        // if (!window.DEFAULT_CENTER_LAT || !window.DEFAULT_CENTER_LONG) {
+        //   console.error("You must set DEFAULT_CENTER_LAT and DEFAULT_CENTER_LONG in your Flask settings to use the map widget");
+        //   return false;
+        // }
 
         var geometryType = $el.data("geometry-type")
         if (geometryType) {
@@ -164,9 +164,10 @@
             maxZoom: 18
           }).addTo(map)
         } else {
-          var mapboxUrl = 'https://api.mapbox.com/styles/v1/mapbox/'+window.MAPBOX_MAP_ID+'/tiles/{z}/{x}/{y}?access_token='+window.MAPBOX_ACCESS_TOKEN
+          // var mapboxUrl = 'https://api.mapbox.com/styles/v1/mapbox/'+window.MAPBOX_MAP_ID+'/tiles/{z}/{x}/{y}?access_token='+window.MAPBOX_ACCESS_TOKEN
+          var tileUrl = 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png'
           L.tileLayer(mapboxUrl, {
-            attribution: 'Map data &copy; <a href="//openstreetmap.org">OpenStreetMap</a> contributors, <a href="//creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="//mapbox.com">Mapbox</a>',
+            attribution: 'Map data &copy; <a href="//openstreetmap.org">OpenStreetMap</a> contributors, <a href="//creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
             maxZoom: 18
           }).addTo(map);
         }
