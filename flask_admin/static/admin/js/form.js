@@ -166,7 +166,7 @@
         } else {
           // var mapboxUrl = 'https://api.mapbox.com/styles/v1/mapbox/'+window.MAPBOX_MAP_ID+'/tiles/{z}/{x}/{y}?access_token='+window.MAPBOX_ACCESS_TOKEN
           var tileUrl = 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          L.tileLayer(mapboxUrl, {
+          L.tileLayer(tileUrl, {
             attribution: 'Map data &copy; <a href="//openstreetmap.org">OpenStreetMap</a> contributors, <a href="//creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
             maxZoom: 18
           }).addTo(map);
